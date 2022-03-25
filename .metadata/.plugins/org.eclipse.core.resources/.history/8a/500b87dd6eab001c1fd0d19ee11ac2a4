@@ -1,0 +1,11 @@
+package com.jacaranda.equipo;
+
+import java.util.Set;
+
+import com.jacaranda.jugadores.Alumno;
+
+public class Equipo {
+
+	public String nombre;
+	private Set<Alumno> lista=new HashSet<Alumno>();
+}

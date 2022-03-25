@@ -1,0 +1,5 @@
+package com.jacaranda.pueblo;
+
+public class PuebloException extends Exception {
+
+}
