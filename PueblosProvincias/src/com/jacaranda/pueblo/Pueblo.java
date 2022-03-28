@@ -2,7 +2,7 @@ package com.jacaranda.pueblo;
 
 import java.util.Objects;
 
-public class Pueblo implements Comparable<Pueblo>{
+public class Pueblo implements Comparable<Pueblo> {
 
 	private String nombre;
 	private String codigo;
@@ -11,20 +11,16 @@ public class Pueblo implements Comparable<Pueblo>{
 	private double superficie;
 	public Pueblo(String nombre, String codigo) throws PuebloException {
 		super();
-		if (codigo.length()!=5 ) {
-			throw new PuebloException("El código debe tener una longitud de 5 caracteres");
-		}
-		
 		this.nombre = nombre.toUpperCase();
-		this.codigo = codigo;
+		setCodigo(codigo);
 		this.numeroHabitantes=0;
 		this.rentaPerCapita=0;
 		this.superficie=0;
 	}
-	public Pueblo(String nombre, String codigo, int numeroHabitantes, double rentaPerCapita, double superficie) {
+	public Pueblo(String nombre, String codigo, int numeroHabitantes, double rentaPerCapita, double superficie) throws PuebloException {
 		super();
 		this.nombre = nombre;
-		this.codigo = codigo;
+		setCodigo(codigo);
 		this.numeroHabitantes = numeroHabitantes;
 		this.rentaPerCapita = rentaPerCapita;
 		this.superficie = superficie;
@@ -49,7 +45,16 @@ public class Pueblo implements Comparable<Pueblo>{
 		return codigo;
 	}
 	
-	public void setCodigo(String codigo) {
+	private void setCodigo(String codigo) throws PuebloException {
+		if (codigo.length()!=5 ) {
+			throw new PuebloException("El código debe tener una longitud de 5 caracteres");
+		}
+		for (int i = 0; i < codigo.length(); i++) {
+			char caracter=codigo.charAt(i);
+			if (!Character.isDigit(caracter)) {
+				throw new PuebloException("El codigo solo puede tener caracteres numericos");
+			}
+		}
 		this.codigo = codigo;
 	}
 	
@@ -59,7 +64,7 @@ public class Pueblo implements Comparable<Pueblo>{
 	}
 	
 	public void setNumeroHabitantes(int numeroHabitantes) throws PuebloException {
-		if (this.numeroHabitantes<0) {
+		if (numeroHabitantes<0) {
 			throw new PuebloException("No puede haber menos de 0 habitantes");
 		}
 		this.numeroHabitantes = numeroHabitantes;
@@ -94,9 +99,8 @@ public class Pueblo implements Comparable<Pueblo>{
 	}
 	@Override
 	public int compareTo(Pueblo o) {
-		int resultado=this.nombre.compareTo(o.nombre);
 		
-		return resultado;
+		return this.nombre.compareTo(o.nombre);
 	}
 	@Override
 	public String toString() {

@@ -1,0 +1,13 @@
+package com.jacaranda.main;
+
+import com.jacaranda.pueblo.Pueblo;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Pueblo p1=new Pueblo("lora", "12345");
+	}
+
+}

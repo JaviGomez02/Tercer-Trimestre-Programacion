@@ -1,0 +1,18 @@
+package com.jacaranda.main;
+
+import com.jacaranda.Provincia.Provincia;
+import com.jacaranda.Provincia.ProvinciaException;
+import com.jacaranda.pueblo.Pueblo;
+import com.jacaranda.pueblo.PuebloException;
+
+public class Main {
+
+	public static void main(String[] args) throws PuebloException, ProvinciaException {
+
+		Pueblo p1=new Pueblo("lora", "hola");
+		System.out.println(p1.toString());
+		
+		Provincia p2=new Provincia("Sevilla","12");
+	}
+
+}
