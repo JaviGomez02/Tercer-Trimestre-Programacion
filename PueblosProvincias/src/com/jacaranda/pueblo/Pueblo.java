@@ -75,7 +75,7 @@ public class Pueblo implements Comparable<Pueblo> {
 	}
 	
 	public void setRentaPerCapita(double rentaPerCapita) throws PuebloException {
-		if (this.rentaPerCapita<=0) {
+		if (rentaPerCapita<=0) {
 			throw new PuebloException("La renta per capita debe ser mayor que 0");
 
 		}
@@ -87,7 +87,7 @@ public class Pueblo implements Comparable<Pueblo> {
 	}
 	
 	public void setSuperficie(double superficie) throws PuebloException {
-		if (this.superficie<=0) {
+		if (superficie<=0) {
 			throw new PuebloException("La superficie debe ser mayor que 0");
 
 		}

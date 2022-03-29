@@ -10,18 +10,20 @@ public class Main {
 	public static void main(String[] args){
 
 
-		Provincia p2;
+		Provincia p1, p2, p3, p4, p5, p6;
 		try {
-			p2 = new Provincia("Sevilla","12");
-			System.out.println(p2.toString());
-			p2.addPueblo("Campana", "123", 5, 6, 4);
-			p2.addPueblo("carmona", "122", 3, 5, 7);
-			p2.addPueblo("lora", "121", 3, 5, 7);
-			System.out.println(p2.listadoNombresPueblos());
-			System.out.println(p2.listadoPueblos());
-			System.out.println(p2.getInformacionPueblo("lora"));
-			p2.delPueblo("Carmona");
-			System.out.println(p2.listadoNombresPueblos());
+
+			p1=new Provincia("Sevilla","23");
+//			p2=new Provincia(null,"11");
+//			p3=new Provincia("Cordoba",null);
+//			p4=new Provincia("Malaga","3");
+//			p5=new Provincia("Almeria","234");
+			p1.addPueblo("Brenes", "124", 23342, 12333, 2133421);
+//			p1.addPueblo("Brenes", "124", 23342, 12333, 2133421);
+			System.out.println(p1.listadoPueblos());
+//			p1.setRentaPerCapita(-5);
+//			p1.setSuperficie("Brenes", -5);
+			p1.setNumeroHabitantes("brenes", -4);
 		} catch (ProvinciaException e) {
 			System.out.println(e.getMessage());
 		}

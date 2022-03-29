@@ -19,6 +19,9 @@ public class Provincia {
 	
 	public Provincia(String nombre, String codigo) throws ProvinciaException{
 		super();
+		if (nombre==null) {
+			throw new ProvinciaException("El nombre no puede ser nulo");
+		}
 		this.nombre = nombre.toUpperCase();
 		setCodigo(codigo);
 		this.numeroHabitantes=0;
@@ -46,6 +49,9 @@ public class Provincia {
 		if (existePueblo(nombre.toUpperCase())) {
 			throw new ProvinciaException("El nombre ya existe");
 		}
+		if (codigo.length()!=3) {
+			throw new ProvinciaException("El código solo puede tener 3 caracteres");
+		}
 		boolean resultado=true;
 		codigo=this.codigo.concat(codigo);
 		
@@ -69,6 +75,9 @@ public class Provincia {
 	
 	
 	private void setCodigo(String codigo) throws ProvinciaException {
+		if (codigo==null) {
+			throw new ProvinciaException("El código no puede ser nulo");
+		}
 		if (codigo.length()!=2 ) {
 			throw new ProvinciaException("El código debe tener una longitud de 2 caracteres");
 		}
@@ -123,8 +132,8 @@ public class Provincia {
 	
 	public int numPueblos() {
 		int contador=0;
-		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
-			Pueblo pueblo = (Pueblo) iterator.next();
+		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+			Pueblo pueblo =iterator.next();
 			contador++;	
 		}
 		return contador;
@@ -139,6 +148,7 @@ public class Provincia {
 		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
 			Pueblo p = iterator.next();
 			if (p.getNombre().equals(pueblo.toUpperCase())) {
+				this.numeroHabitantes=this.numeroHabitantes-p.getNumeroHabitantes();
 				try {
 					p.setNumeroHabitantes(numeroHabitantes);
 				} catch (PuebloException e) {
@@ -156,7 +166,10 @@ public class Provincia {
 		return rentaPerCapita;
 	}
 
-	public void setRentaPerCapita(double rentaPerCapita) {
+	public void setRentaPerCapita(double rentaPerCapita) throws ProvinciaException {
+		if (rentaPerCapita<0) {
+			throw new ProvinciaException("La Renta Per Capita no puede ser negativa");
+		}
 		this.rentaPerCapita = rentaPerCapita;
 	}
 
