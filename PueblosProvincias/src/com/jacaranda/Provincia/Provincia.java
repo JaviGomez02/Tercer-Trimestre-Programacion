@@ -27,12 +27,13 @@ public class Provincia {
 		this.numeroHabitantes=0;
 		this.rentaPerCapita=0;
 		this.superficie=0;
-		this.lista=new HashSet<Pueblo>();
+		this.lista=new HashSet<>();
 	}
 	
 	private boolean existePueblo(String nombre) {
 		boolean resultado=false;
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while (iterator.hasNext() && !resultado) {
 			Pueblo p2 =iterator.next();
 			if (p2.getNombre().equals(nombre)) {
 				resultado=true;
@@ -112,8 +113,8 @@ public class Provincia {
 	
 	public boolean delPueblo(String nombre) {
 		boolean resultado=false;
-		
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext() && !resultado; ) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while(iterator.hasNext() && !resultado) {
 			Pueblo p =iterator.next();
 			if (p.getNombre().equalsIgnoreCase(nombre)) {
 				resultado=true;
@@ -131,12 +132,7 @@ public class Provincia {
 	}
 	
 	public int numPueblos() {
-		int contador=0;
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
-			Pueblo pueblo =iterator.next();
-			contador++;	
-		}
-		return contador;
+		return this.lista.size();
 	}
 	
 	public int getNumeroHabitantes() {
@@ -145,7 +141,8 @@ public class Provincia {
 
 	public boolean setNumeroHabitantes(String pueblo, int numeroHabitantes) throws ProvinciaException{
 		boolean resultado=false;
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while ( iterator.hasNext() && !resultado) {
 			Pueblo p = iterator.next();
 			if (p.getNombre().equals(pueblo.toUpperCase())) {
 				this.numeroHabitantes=this.numeroHabitantes-p.getNumeroHabitantes();
@@ -179,7 +176,8 @@ public class Provincia {
 
 	public boolean setSuperficie(String pueblo, double superficie) throws ProvinciaException  {
 		boolean resultado=false;
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while ( iterator.hasNext() && !resultado) {
 			Pueblo p = iterator.next();
 			if (p.getNombre().equals(pueblo.toUpperCase())) {
 				try {
@@ -205,10 +203,13 @@ public class Provincia {
 	}
 	public String getInformacionPueblo(String nombre) {
 		String resultado=null;
-		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
+		boolean salir=false;
+		Iterator<Pueblo> iterator = lista.iterator();
+		while ( iterator.hasNext() && !salir) {
 			Pueblo pueblo = (Pueblo) iterator.next();
 			if (pueblo.getNombre().equalsIgnoreCase(nombre)) {
 				resultado=pueblo.toString();
+				salir=true;
 			}
 		}
 		return resultado;

@@ -21,9 +21,9 @@ public class Pueblo implements Comparable<Pueblo> {
 		super();
 		this.nombre = nombre;
 		setCodigo(codigo);
-		this.numeroHabitantes = numeroHabitantes;
-		this.rentaPerCapita = rentaPerCapita;
-		this.superficie = superficie;
+		setNumeroHabitantes(numeroHabitantes);
+		setRentaPerCapita(rentaPerCapita);
+		setSuperficie(superficie);
 	}
 	@Override
 	public int hashCode() {

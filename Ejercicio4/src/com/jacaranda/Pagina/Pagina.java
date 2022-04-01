@@ -1,20 +1,17 @@
 package com.jacaranda.Pagina;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Pagina {
 
 	private String url;
-	private LocalDate fecha;
-	private LocalTime hora;
+	private LocalDateTime fechaHora;
 	
 	public Pagina(String url) throws PaginaException {
 		super();
 		setUrl(url);
-		this.fecha = LocalDate.now();
-		this.hora = LocalTime.now();
+		this.fechaHora = LocalDateTime.now();
 	}
 	public String getUrl() {
 		return url;
@@ -25,15 +22,16 @@ public class Pagina {
 		}
 		this.url = url;
 	}
-	public LocalDate getFecha() {
-		return fecha;
+	public LocalDateTime getFecha() {
+		return fechaHora;
 	}
-	public LocalTime getHora() {
-		return hora;
-	}
+	
+	
+	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(url);
+		return Objects.hash(fechaHora);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -44,11 +42,11 @@ public class Pagina {
 		if (getClass() != obj.getClass())
 			return false;
 		Pagina other = (Pagina) obj;
-		return Objects.equals(url, other.url);
+		return Objects.equals(fechaHora, other.fechaHora);
 	}
 	@Override
 	public String toString() {
-		return "Pagina [url=" + url + ", fecha=" + fecha + ", hora=" + hora + "]";
+		return "Pagina [url=" + url + ", fecha=" + fechaHora +"]";
 	}
 	
 	
