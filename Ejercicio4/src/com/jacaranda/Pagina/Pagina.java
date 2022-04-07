@@ -17,7 +17,7 @@ public class Pagina {
 		return url;
 	}
 	public void setUrl(String url) throws PaginaException {
-		if (url==null) {
+		if (url==null || url.equals("")) {
 			throw new PaginaException("El URL no puede ser nulo");
 		}
 		this.url = url;

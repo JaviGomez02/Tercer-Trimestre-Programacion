@@ -1,5 +1,0 @@
-package com.jacaranda.equipo;
-
-public class EquipoException extends Exception {
-
-}

@@ -57,8 +57,8 @@
 		<item key="VisibilityModifier" value="1"/>
 	</section>
 	<section name="DialogBounds_GenerateHashCodeEqualsDialog">
-		<item key="DIALOG_X_ORIGIN" value="197"/>
-		<item key="DIALOG_Y_ORIGIN" value="72"/>
+		<item key="DIALOG_X_ORIGIN" value="-781"/>
+		<item key="DIALOG_Y_ORIGIN" value="276"/>
 		<item key="DIALOG_WIDTH" value="566"/>
 		<item key="DIALOG_HEIGHT" value="654"/>
 		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>

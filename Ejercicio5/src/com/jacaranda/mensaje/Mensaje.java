@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Mensaje implements Comparable<Mensaje> {
 
-
 	
+	private int codigo;
 	private String remitente;
 	private String destinatario;
 	private String texto;

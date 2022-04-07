@@ -1,7 +1,0 @@
-package com.jacaranda.pueblo;
-
-import com.jacaranda.Provincia.Provincia;
-
-public class sadasd extends Provincia {
-
-}

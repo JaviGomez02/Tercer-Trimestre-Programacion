@@ -93,7 +93,8 @@ public class Provincia {
 	
 	public String listadoNombresPueblos() {
 		StringBuilder resultado=new StringBuilder("");
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while (iterator.hasNext()) {
 			Pueblo p =iterator.next();
 			resultado.append(p.getNombre()+"\n");
 			
@@ -103,7 +104,8 @@ public class Provincia {
 
 	public String listadoPueblos() {
 		StringBuilder resultado=new StringBuilder("");
-		for (Iterator<Pueblo> iterator = lista.iterator(); iterator.hasNext();) {
+		Iterator<Pueblo> iterator = lista.iterator();
+		while ( iterator.hasNext()) {
 			Pueblo p =iterator.next();
 			resultado.append(p.toString()+"\n");
 			

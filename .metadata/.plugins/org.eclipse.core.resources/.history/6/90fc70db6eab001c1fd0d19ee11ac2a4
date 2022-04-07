@@ -1,7 +1,0 @@
-package com.jacaranda.equipo;
-
-public class Equipo {
-
-	public String nombre;
-	private Set<Alumno> lista=new HashSet<Alumno>();
-}

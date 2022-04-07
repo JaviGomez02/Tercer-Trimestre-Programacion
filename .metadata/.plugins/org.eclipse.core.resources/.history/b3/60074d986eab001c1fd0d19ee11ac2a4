@@ -1,7 +1,0 @@
-package com.jacaranda.jugadores;
-
-public class Equipo {
-
-	public String nombre;
-	
-}

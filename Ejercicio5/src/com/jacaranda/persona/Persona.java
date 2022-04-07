@@ -16,7 +16,7 @@ public abstract class Persona {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		this.buzon=new LinkedList<Mensaje>();
+		this.buzon=new LinkedList<>();
 	}
 	public abstract void enviarMensaje(String persona, String texto);
 	
@@ -43,6 +43,12 @@ public abstract class Persona {
 //		
 //		
 //	}
+	
+	public void borrarMensaje(int numero) {
+		
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(edad, nombre);

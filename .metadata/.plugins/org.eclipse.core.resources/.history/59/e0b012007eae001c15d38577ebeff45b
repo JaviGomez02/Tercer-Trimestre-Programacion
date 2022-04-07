@@ -1,5 +1,0 @@
-package com.jacaranda.Provincia;
-
-public class ProvinciaException extends Exception {
-
-}

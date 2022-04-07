@@ -1,7 +1,0 @@
-package com.jacaranda;
-
-public class Equipo {
-
-	public String nombre;
-	
-}
