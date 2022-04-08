@@ -8825,3 +8825,96 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.sonarlint.eclipse.core 2 0 2022-04-07 14:29:53.016
+!MESSAGE Error when executing SonarLint analysis
+!STACK 0
+java.util.concurrent.ExecutionException: java.lang.NullPointerException: Cannot invoke "java.net.URI.hashCode()" because the return value of "org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.SonarLintInputFile.uri()" is null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:395)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2069)
+	at org.sonarsource.sonarlint.core.StandaloneSonarLintEngineImpl.analyze(StandaloneSonarLintEngineImpl.java:124)
+	at org.sonarlint.eclipse.core.internal.engine.StandaloneEngineFacade.lambda$4(StandaloneEngineFacade.java:113)
+	at org.sonarlint.eclipse.core.internal.engine.StandaloneEngineFacade.withEngine(StandaloneEngineFacade.java:104)
+	at org.sonarlint.eclipse.core.internal.engine.StandaloneEngineFacade.runAnalysis(StandaloneEngineFacade.java:112)
+	at org.sonarlint.eclipse.core.internal.jobs.AnalyzeStandaloneProjectJob.runAnalysis(AnalyzeStandaloneProjectJob.java:62)
+	at org.sonarlint.eclipse.core.internal.jobs.AnalyzeStandaloneProjectJob.runAnalysis(AnalyzeStandaloneProjectJob.java:1)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.run(AbstractAnalyzeProjectJob.java:393)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.runAnalysisAndUpdateMarkers(AbstractAnalyzeProjectJob.java:201)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractAnalyzeProjectJob.doRun(AbstractAnalyzeProjectJob.java:157)
+	at org.sonarlint.eclipse.core.internal.jobs.AbstractSonarProjectJob.run(AbstractSonarProjectJob.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.net.URI.hashCode()" because the return value of "org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.SonarLintInputFile.uri()" is null
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.SonarLintInputFile.hashCode(SonarLintInputFile.java:180)
+	at java.base/java.util.HashMap.hash(HashMap.java:340)
+	at java.base/java.util.HashMap.put(HashMap.java:612)
+	at java.base/java.util.HashSet.add(HashSet.java:221)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.InputFileIndex.doAdd(InputFileIndex.java:49)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.FileIndexer.indexFile(FileIndexer.java:106)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.FileIndexer.indexFile(FileIndexer.java:100)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.FileIndexer.indexFiles(FileIndexer.java:92)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.filesystem.FileIndexer.index(FileIndexer.java:76)
+	at org.sonarsource.sonarlint.core.analysis.container.analysis.AnalysisContainer.doAfterStart(AnalysisContainer.java:121)
+	at org.sonarsource.sonarlint.core.plugin.commons.pico.ComponentContainer.startComponents(ComponentContainer.java:119)
+	at org.sonarsource.sonarlint.core.plugin.commons.pico.ComponentContainer.execute(ComponentContainer.java:104)
+	at org.sonarsource.sonarlint.core.analysis.container.module.ModuleContainer.analyze(ModuleContainer.java:71)
+	at org.sonarsource.sonarlint.core.analysis.command.AnalyzeCommand.execute(AnalyzeCommand.java:58)
+	at org.sonarsource.sonarlint.core.analysis.command.AnalyzeCommand.execute(AnalyzeCommand.java:32)
+	at org.sonarsource.sonarlint.core.analysis.AnalysisEngine$AsyncCommand.execute(AnalysisEngine.java:152)
+	at org.sonarsource.sonarlint.core.analysis.AnalysisEngine.executeQueuedCommands(AnalysisEngine.java:70)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+!SESSION 2022-04-08 08:08:35.502 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-04-08 08:08:39.461
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-04-08 08:08:39.461
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@11f9b95a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@42066f0d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2022-04-08 08:19:51.691 -----------------------------------------------
+eclipse.buildId=4.21.0.I20210906-0500
+java.version=16.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data /home/estudiante/Documents/Dawn/Programación/TercerTrimestre -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2022-04-08 08:19:53.970
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-04-08 08:19:53.970
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e26987b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@50bb1c1f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

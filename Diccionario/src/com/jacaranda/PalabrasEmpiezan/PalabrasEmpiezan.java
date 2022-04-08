@@ -3,6 +3,7 @@ package com.jacaranda.PalabrasEmpiezan;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import com.jacaranda.Palabra.Palabra;
 import com.jacaranda.Palabra.PalabraException;
@@ -40,22 +41,51 @@ public class PalabrasEmpiezan {
 	public void borrarPalabra(String palabra) {
 		boolean salir=false;
 		Iterator<Palabra> iterador=this.palabras.iterator();
-		while (iterador.hasNext() && salir==false) {
+		while (iterador.hasNext() && !salir) {
 			Palabra p=iterador.next();
-			if (p.getPalabra().equals(p)) {
+			if (p.getPalabra().equals(palabra)) {
 				salir=true;
 				this.palabras.remove(p);
 			}
-			
 		}
-		
-		
+	}
+	public void annadirSignificado(String palabra, String significado) throws PalabrasEmpiezanException {
+		boolean salir=false;
+		Iterator<Palabra> iterador=this.palabras.iterator();
+		while (iterador.hasNext() && !salir) {
+			Palabra p=iterador.next();
+			if (p.getPalabra().equals(palabra)) {
+				salir=true;
+				try {
+					p.addSignificado(significado);
+				} catch (PalabraException e) {
+					throw new PalabrasEmpiezanException("No se puede añadir el significado");
+				}
+			}
+		}
 	}
 	
 
 	@Override
+	public int hashCode() {
+		return Objects.hash(letra);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PalabrasEmpiezan other = (PalabrasEmpiezan) obj;
+		return letra == other.letra;
+	}
+
+	@Override
 	public String toString() {
-		return "PalabrasEmpiezan [letra=" + letra + ", palabras=" + palabras + "]";
+		return "Letra: " + letra + ". Palabras: " + palabras;
 	}
 
 	

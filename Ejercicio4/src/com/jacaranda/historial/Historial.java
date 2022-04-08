@@ -12,8 +12,6 @@ public class Historial {
 		super();
 		this.paginas=new ArrayList<>();
 	}
-
-	
 	
 	public void nuevaPagina(String url) throws HistorialException {
 		Pagina p;
@@ -28,7 +26,7 @@ public class Historial {
 	public String consultarHistorial() {
 		StringBuilder resultado=new StringBuilder("");
 		Iterator<Pagina> iterador=paginas.iterator();
-		while (iterador.hasNext()) {
+		while (iterador.hasNext()) {				
 			Pagina p=iterador.next();
 			resultado.append(p+"\n");
 		}
